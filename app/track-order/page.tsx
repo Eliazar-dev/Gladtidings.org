@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { KES } from '@/lib/utils'
 
 const statusConfig: any = {
@@ -189,7 +190,9 @@ export default function TrackOrderPage() {
               <div style={{ display:"flex",flexDirection:"column",gap:12 }}>
                 {(order.items || []).map((item: any, i: number) => (
                   <div key={i} style={{ display:"flex",gap:16,padding:16,border:"1px solid var(--border)",borderRadius:8 }}>
-                    <img src={item.product_image || '/placeholder.jpg'} alt={item.product_name} style={{ width:80,height:80,objectFit:"cover",borderRadius:6 }} />
+                    <div style={{ position: 'relative', width: 80, height: 80, flexShrink: 0 }}>
+                      <Image src={item.product_image || '/placeholder.jpg'} alt={item.product_name} fill sizes="80px" className="object-cover rounded-lg" unoptimized />
+                    </div>
                     <div style={{ flex:1 }}>
                       <div style={{ fontWeight:700,fontSize:15,color:"var(--bark)",marginBottom:4 }}>{item.product_name}</div>
                       <div style={{ fontSize:13,color:"var(--bark)",opacity:0.6,marginBottom:8 }}>Quantity: {item.quantity}</div>

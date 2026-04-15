@@ -31,7 +31,7 @@ export default function Newsletter() {
           Successfully Subscribed!
         </div>
         <div style={{ fontSize: 14, color: 'var(--bark)', opacity: 0.7 }}>
-          Thank you for joining our newsletter. You'll receive updates on our latest products and health tips.
+          Thank you for joining our newsletter. You&apos;ll receive updates on our latest products and health tips.
         </div>
       </div>
     )

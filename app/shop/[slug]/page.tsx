@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
 import { useCartStore } from '@/store/cartStore'
 import { KES } from '@/lib/utils'
 import Link from 'next/link'
@@ -88,13 +89,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <div className="sp-gallery">
               <div className="sp-thumbs">
                 {imgs.map((img, i) => (
-                  <div key={i} className={`sp-thumb ${activeImg === i ? "active" : ""}`} onClick={() => setActiveImg(i)}>
-                    <img src={img} alt={`${product.name} view ${i + 1}`} />
+                  <div key={i} className={`sp-thumb ${activeImg === i ? "active" : ""}`} onClick={() => setActiveImg(i)} style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Image src={img} alt={`${product.name} view ${i + 1}`} fill sizes="(max-width: 768px) 100vw, 20vw" className="object-cover" unoptimized />
                   </div>
                 ))}
               </div>
-              <div className="sp-main-img">
-                <img src={imgs[activeImg]} alt={product.name} key={activeImg} style={{ animation: "fadeIn 0.4s ease" }} />
+              <div className="sp-main-img" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image src={imgs[activeImg]} alt={product.name} key={activeImg} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" unoptimized style={{ animation: "fadeIn 0.4s ease" }} />
               </div>
             </div>
 
