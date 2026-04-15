@@ -7,14 +7,14 @@ import Link from 'next/link'
 const HERO_SLIDES = [
   {
     title: "Gladtidings Health\nNatural Remedies",
-    sub: "Bringing God's healing through nature to communities across Kenya and beyond.",
+    sub: "Bringing God&apos;s healing through nature to communities across Kenya and beyond.",
     badge: "Serving Since 2003",
     cta: "Shop Remedies",
     img: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1400&q=80",
     accent: "#74C69D",
   },
   {
-    title: "From Africa's Soil\nTo Your Home",
+    title: "From Africa&apos;s Soil\nTo Your Home",
     sub: "Ethically sourced herbal remedies prepared with faith, care, and botanical expertise.",
     badge: "100% Natural",
     cta: "Our Products",

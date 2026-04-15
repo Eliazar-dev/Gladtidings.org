@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
   if (!mounted) return null
 
   const quickMsgs = [
-    "I'd like to order a product",
+    "I&apos;d like to order a product",
     "I have a question about a remedy",
     "I need help with my order",
     "Tell me about your mission",
@@ -27,7 +27,7 @@ export default function WhatsAppButton() {
 
   const openWhatsApp = (text: string) => {
     const phone = "254723730980"
-    const message = encodeURIComponent(text || msg || "Hello! I'm interested in Gladtidings Health products.")
+    const message = encodeURIComponent(text || msg || "Hello! I&apos;m interested in Gladtidings Health products.")
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
   }
 
