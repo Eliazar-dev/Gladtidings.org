@@ -3,17 +3,7 @@ import Image from 'next/image'
 import { KES } from '@/lib/utils'
 import { useCartStore } from '@/store/cartStore'
 import { useWishlistStore } from '@/store/wishlistStore'
-
-interface Product {
-  id: number
-  name: string
-  price: number
-  img: string
-  cat?: string
-  desc?: string
-  badge?: string | null
-  stock?: number
-}
+import type { Product } from '@/types'
 
 interface ProductQuickViewProps {
   product: Product
@@ -103,7 +93,7 @@ export default function ProductQuickView({ product, isOpen, onClose }: ProductQu
           {/* Image */}
           <div style={{ position: 'relative', width: '100%', height: 400, marginBottom: 16 }}>
             <Image
-              src={product.img}
+              src={product.images?.[0] || '/placeholder.jpg'}
               alt={product.name}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -133,9 +123,9 @@ export default function ProductQuickView({ product, isOpen, onClose }: ProductQu
 
           {/* Details */}
           <div>
-            {product.cat && (
+            {product.category && (
               <div style={{ fontSize: 12, color: 'var(--green)', fontWeight: 700, marginBottom: 8 }}>
-                {product.cat}
+                {product.category.name}
               </div>
             )}
 
@@ -163,7 +153,7 @@ export default function ProductQuickView({ product, isOpen, onClose }: ProductQu
               {KES(product.price)}
             </div>
 
-            {product.desc && (
+            {product.description && (
               <p
                 style={{
                   fontSize: 15,
@@ -173,7 +163,7 @@ export default function ProductQuickView({ product, isOpen, onClose }: ProductQu
                   marginBottom: 24,
                 }}
               >
-                {product.desc}
+                {product.description}
               </p>
             )}
 

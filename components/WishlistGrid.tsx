@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useWishlistStore } from '@/store/wishlistStore'
 import { KES } from '@/lib/utils'
+import type { Product } from '@/types'
 
 export default function WishlistGrid() {
   const { items, removeItem, clearWishlist } = useWishlistStore()
@@ -54,7 +55,7 @@ export default function WishlistGrid() {
           >
             <div style={{ position: 'relative', width: '100%', height: 200, marginBottom: 12 }}>
               <Image
-                src={item.img}
+                src={item.images?.[0] || '/placeholder.jpg'}
                 alt={item.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -85,9 +86,9 @@ export default function WishlistGrid() {
               </button>
             </div>
 
-            {item.cat && (
+            {item.category && (
               <div style={{ fontSize: 11, color: 'var(--green)', fontWeight: 600, marginBottom: 4 }}>
-                {item.cat}
+                {item.category.name}
               </div>
             )}
 

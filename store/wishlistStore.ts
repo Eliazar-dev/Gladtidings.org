@@ -1,19 +1,12 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-
-export interface WishlistItem {
-  id: number
-  name: string
-  price: number
-  img: string
-  cat?: string
-}
+import type { Product } from '@/types'
 
 interface WishlistStore {
-  items: WishlistItem[]
+  items: Product[]
   hasHydrated: boolean
   setHasHydrated: (state: boolean) => void
-  addItem: (item: WishlistItem) => void
+  addItem: (item: Product) => void
   removeItem: (id: number) => void
   isInWishlist: (id: number) => boolean
   clearWishlist: () => void
