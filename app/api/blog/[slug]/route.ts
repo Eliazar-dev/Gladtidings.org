@@ -5,14 +5,13 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
+  { params }: { params: { slug: string } }
 ) {
   try {
-    const { slug } = await params
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
-      .eq('slug', slug)
+      .eq('slug', params.slug)
       .eq('published', true)
       .single()
 
