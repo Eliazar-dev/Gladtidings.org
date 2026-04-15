@@ -47,7 +47,7 @@ export default function NewsletterSection() {
           <div style={{ marginTop: 28, background: "rgba(116,198,157,0.15)", border: "1px solid rgba(116,198,157,0.3)", borderRadius: 12, padding: "24px", animation: "scaleIn 0.4s ease" }}>
             <div style={{ fontSize: 40, marginBottom: 12 }}>🙏</div>
             <div style={{ fontFamily: "var(--ff-h)", fontSize: 22, color: "#fff", marginBottom: 8 }}>Welcome to the Family!</div>
-            <div style={{ fontSize: 13, color: "rgba(248,244,238,0.65)", lineHeight: 1.75 }}>You're now subscribed. Check your inbox for a welcome message and your first remedy guide.</div>
+            <div style={{ fontSize: 13, color: "rgba(248,244,238,0.65)", lineHeight: 1.75 }}>You&apos;re now subscribed. Check your inbox for a welcome message and your first remedy guide.</div>
           </div>
         ) : (
           <div className="newsletter-form">

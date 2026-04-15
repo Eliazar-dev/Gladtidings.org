@@ -34,7 +34,7 @@ export default function Testimonials() {
     <section className="test-sec">
       <div style={{ maxWidth: 660, margin: '0 auto', textAlign: 'center' }}>
         <div style={{ fontFamily: 'var(--ff-h)', fontSize: 56, color: 'var(--gold)', opacity: 0.35, lineHeight: 1, marginBottom: 18 }}>
-          "
+          &ldquo;
         </div>
         <blockquote
           className="a-fadeup"

@@ -17,7 +17,7 @@ export default function Footer() {
             Gladtidings Health
           </div>
           <p style={{ fontSize: 13, opacity: 0.58, lineHeight: 1.85, maxWidth: 240 }}>
-            Bringing God's healing through nature to communities across Kenya and beyond.
+            Bringing God&apos;s healing through nature to communities across Kenya and beyond.
           </p>
           <div style={{ marginTop: 16, fontSize: 12, opacity: 0.45 }}>
             📍 Awendo town, Migori Kenya<br />
