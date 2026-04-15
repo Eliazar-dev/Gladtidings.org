@@ -39,15 +39,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   const addToCart = () => {
     if (!product) return
-    addItem({
-      id: product.id,
-      name: product.name,
-      slug: product.slug,
-      price: product.price,
-      images: product.images,
-      category_id: product.category_id,
-      qty,
-    })
+    addItem(product)
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
   }
