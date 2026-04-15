@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { KES } from '@/lib/utils'
 import { useCartStore } from '@/store/cartStore'
 import { useWishlistStore } from '@/store/wishlistStore'
@@ -109,17 +110,14 @@ export default function ProductQuickView({ product, isOpen, onClose }: ProductQu
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
           {/* Image */}
-          <div>
-            <img
+          <div style={{ position: 'relative', width: '100%', height: 400, marginBottom: 16 }}>
+            <Image
               src={product.img}
               alt={product.name}
-              style={{
-                width: '100%',
-                height: 400,
-                objectFit: 'cover',
-                borderRadius: 12,
-                marginBottom: 16,
-              }}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover rounded-lg"
+              unoptimized
             />
             {product.badge && (
               <span

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { useWishlistStore } from '@/store/wishlistStore'
 import { KES } from '@/lib/utils'
 
@@ -51,17 +52,14 @@ export default function WishlistGrid() {
               transition: 'all 0.32s cubic-bezier(0.4,0,0.2,1)',
             }}
           >
-            <div style={{ position: 'relative' }}>
-              <img
+            <div style={{ position: 'relative', width: '100%', height: 200, marginBottom: 12 }}>
+              <Image
                 src={item.img}
                 alt={item.name}
-                style={{
-                  width: '100%',
-                  height: 200,
-                  objectFit: 'cover',
-                  borderRadius: 8,
-                  marginBottom: 12,
-                }}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover rounded-lg"
+                unoptimized
               />
               <button
                 onClick={() => removeItem(item.id)}

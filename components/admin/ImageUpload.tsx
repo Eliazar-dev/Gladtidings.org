@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface ImageUploadProps {
   onUpload: (url: string) => void
@@ -51,17 +52,14 @@ export default function ImageUpload({ onUpload, currentImage, bucket = 'products
   return (
     <div>
       {preview && (
-        <div style={{ marginBottom: 16 }}>
-          <img 
+        <div style={{ marginBottom: 16, position: 'relative', width: '100%', maxWidth: 300, height: 200 }}>
+          <Image 
             src={preview} 
             alt="Preview" 
-            style={{ 
-              width: '100%', 
-              maxWidth: 300, 
-              height: 200, 
-              objectFit: 'cover', 
-              borderRadius: 8 
-            }} 
+            fill
+            sizes="(max-width: 768px) 100vw, 300px"
+            className="object-cover rounded-lg"
+            unoptimized
           />
         </div>
       )}
