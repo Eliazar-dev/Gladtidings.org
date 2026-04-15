@@ -6,7 +6,7 @@ export type CouponType = 'percent' | 'fixed'
 // Supabase User type (simplified)
 export interface User {
   id: string
-  email: string
+  email?: string
   user_metadata: Record<string, any>
   created_at: string
 }
