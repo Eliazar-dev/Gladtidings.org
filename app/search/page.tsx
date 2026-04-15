@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
+import Image from 'next/image'
 import { KES } from '@/lib/utils'
 import Link from 'next/link'
 import type { Product, BlogPost } from '@/types'
@@ -98,7 +99,7 @@ export default function SearchPage() {
           {searched && !loading && (
             <>
               <div style={{ marginBottom: 28, fontSize: 14, color: "var(--bark)", opacity: 0.6 }}>
-                {totalResults > 0 ? <><strong style={{ color: "var(--green)" }}>{totalResults} results</strong> for "{query}"</> : <>No results found for "<strong>{query}</strong>"</>}
+                {totalResults > 0 ? <><strong style={{ color: "var(--green)" }}>{totalResults} results</strong> for &ldquo;{query}&rdquo;</> : <>No results found for &ldquo;<strong>{query}</strong>&rdquo;</>}
               </div>
 
               {totalResults === 0 && (
@@ -123,7 +124,7 @@ export default function SearchPage() {
                     {results.products.map(p => (
                       <Link href={`/shop/${p.slug}`} key={p.id}>
                         <div className="result-card">
-                          <div className="result-card-img"><img src={p.images?.[0] || '/placeholder.jpg'} alt={p.name} /></div>
+                          <div className="result-card-img" style={{ position: 'relative', width: '100%', height: '100%' }}><Image src={p.images?.[0] || '/placeholder.jpg'} alt={p.name} fill sizes="80px" className="object-cover" unoptimized /></div>
                           <div style={{ flex: 1 }}>
                             <div className="result-type" style={{ color: "var(--green3)" }}>🌿 Product</div>
                             <div className="result-name">{p.name}</div>
@@ -147,7 +148,7 @@ export default function SearchPage() {
                     {results.blogs.map(b => (
                       <Link href={`/blog/${b.slug}`} key={b.id}>
                         <div className="result-card">
-                          <div className="result-card-img"><img src={b.cover_image || '/placeholder.jpg'} alt={b.title} /></div>
+                          <div className="result-card-img" style={{ position: 'relative', width: '100%', height: '100%' }}><Image src={b.cover_image || '/placeholder.jpg'} alt={b.title} fill sizes="80px" className="object-cover" unoptimized /></div>
                           <div style={{ flex: 1 }}>
                             <div className="result-type" style={{ color: "#D4A017" }}>✍️ Article</div>
                             <div className="result-name">{b.title}</div>

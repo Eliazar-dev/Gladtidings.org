@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { KES } from '@/lib/utils'
 
 async function getRemedies() {
@@ -25,8 +26,8 @@ export default async function RemediesPage() {
         {remedies.map((remedy: any) => (
           <Link key={remedy.id} href={`/remedies/${remedy.slug}`} className="c3">
             {remedy.images && remedy.images[0] && (
-              <div className="c3i">
-                <img src={remedy.images[0]} alt={remedy.name} />
+              <div className="c3i" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image src={remedy.images[0]} alt={remedy.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" unoptimized />
               </div>
             )}
             <div className="c3b">
