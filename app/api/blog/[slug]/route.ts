@@ -1,17 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
-
-export async function generateStaticParams() {
-  return []
-}
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   try {
+    const { supabase } = await import('@/lib/supabase')
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
