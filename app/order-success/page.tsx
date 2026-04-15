@@ -10,7 +10,7 @@ export default function OrderSuccessPage() {
           <div style={{ fontSize: 80, marginBottom: 24 }}>✓</div>
           <div className="empty-title">Order Placed Successfully!</div>
           <div className="empty-desc">
-            Thank you for your purchase. We'll send you a confirmation email shortly with your order details and tracking information.
+            Thank you for your purchase. We&apos;ll send you a confirmation email shortly with your order details and tracking information.
           </div>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/" className="btn-p">

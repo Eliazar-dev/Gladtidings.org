@@ -50,7 +50,7 @@ export default function AboutPage() {
                 Our Story & Mission
               </div>
               <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.78)', maxWidth: 500, lineHeight: 1.75 }}>
-                Two decades of faith, healing, and nature's medicine across Africa and beyond.
+                Two decades of faith, healing, and nature&apos;s medicine across Africa and beyond.
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function AboutPage() {
                   <em>of Healing</em>
                 </h2>
                 <p style={{ fontSize: 14, color: 'var(--bark)', opacity: 0.72, lineHeight: 1.9, marginBottom: 16 }}>
-                  In 2003, Pastor James Kamau had a vision: to combine faith-based missionary work with the incredible healing power of Africa's natural botanical heritage. Starting from a small clinic in Kibera, Nairobi, Gladtidings Health was born.
+                  In 2003, Pastor James Kamau had a vision: to combine faith-based missionary work with the incredible healing power of Africa&apos;s natural botanical heritage. Starting from a small clinic in Kibera, Nairobi, Gladtidings Health was born.
                 </p>
                 <p style={{ fontSize: 14, color: 'var(--bark)', opacity: 0.72, lineHeight: 1.9, marginBottom: 28 }}>
                   Today, we operate in 12 countries, run free rural clinics, and prepare over 200 natural remedies — each one backed by both traditional knowledge and modern science.

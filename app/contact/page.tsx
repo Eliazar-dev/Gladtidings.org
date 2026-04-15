@@ -39,7 +39,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.68)', maxWidth: 480, lineHeight: 1.8 }}>
-              Have questions about our remedies or mission? We'd love to hear from you.
+              Have questions about our remedies or mission? We&apos;d love to hear from you.
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 <div style={{ background: '#e8f5e9', border: '1px solid #c8e6c9', borderRadius: 10, padding: 24, textAlign: 'center' }}>
                   <div style={{ fontSize: 40, marginBottom: 8 }}>✓</div>
                   <div style={{ fontSize: 16, color: '#2e7d32', fontWeight: 600 }}>Message Sent!</div>
-                  <div style={{ fontSize: 13, color: '#388e3c', marginTop: 6 }}>We'll get back to you within 24 hours.</div>
+                  <div style={{ fontSize: 13, color: '#388e3c', marginTop: 6 }}>We&apos;ll get back to you within 24 hours.</div>
                 </div>
               ) : (
                 <form onSubmit={submit}>

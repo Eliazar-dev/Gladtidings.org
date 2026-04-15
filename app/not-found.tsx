@@ -18,7 +18,7 @@ export default function NotFound() {
         </div>
         <h1 className="nf-title">Page Not Found</h1>
         <p className="nf-desc">
-          Looks like this page wandered off into the forest. Don't worry — let us guide you back to health and wholeness.
+          Looks like this page wandered off into the forest. Don&apos;t worry — let us guide you back to health and wholeness.
         </p>
         <div className="nf-links">
           <Link href="/"><button className="btn-p">← Back to Home</button></Link>

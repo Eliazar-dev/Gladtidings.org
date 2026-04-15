@@ -245,7 +245,7 @@ export default function TrackOrderPage() {
               </button>
               {order.status === "pending_whatsapp" && (
                 <button
-                  onClick={() => window.open(`https://wa.me/254700123456?text=${encodeURIComponent(`Hello, I'm checking on my order ${order.id}`)}`, "_blank")}
+                  onClick={() => window.open(`https://wa.me/254700123456?text=${encodeURIComponent(`Hello, I&apos;m checking on my order ${order.id}`)}`, "_blank")}
                   style={{
                     flex:1,
                     padding:"12px 24px",

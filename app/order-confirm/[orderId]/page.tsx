@@ -90,7 +90,7 @@ export default function OrderConfirmPage() {
           <div>
             <div style={{ fontSize: 48, marginBottom: 16 }}>📋</div>
             <h2 style={{ fontFamily: "var(--ff-h)", fontSize: 24, color: "var(--green)", marginBottom: 8 }}>Order Not Found</h2>
-            <p style={{ fontSize: 14, color: "var(--bark)", opacity: 0.6, marginBottom: 24 }}>We couldn't find an order with that ID.</p>
+            <p style={{ fontSize: 14, color: "var(--bark)", opacity: 0.6, marginBottom: 24 }}>We couldn&apos;t find an order with that ID.</p>
             <Link href="/shop" className="btn-p">
               Continue Shopping
             </Link>
