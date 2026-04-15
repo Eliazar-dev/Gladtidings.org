@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useWishlistStore } from '@/store/wishlistStore'
+import type { Product } from '@/types'
 
 interface WishlistButtonProps {
-  product: {
-    id: number
-    name: string
-    price: number
-    img: string
-    cat?: string
-  }
+  product: Product
   className?: string
   style?: React.CSSProperties
 }
