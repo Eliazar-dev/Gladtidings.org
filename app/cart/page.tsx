@@ -72,11 +72,11 @@ export default function CartPage() {
               {items.map((item) => (
                 <div className="cart-item" key={item.id}>
                   <div className="ci-img" style={{ position: 'relative' }}>
-                    <Image src={item.img} alt={item.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" unoptimized className="object-cover" />
+                    <Image src={item.images?.[0] || '/placeholder.jpg'} alt={item.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" unoptimized className="object-cover" />
                   </div>
                   <div style={{ flex: 1 }}>
                     <div className="ci-name">{item.name}</div>
-                    <div className="ci-cat">{item.cat}</div>
+                    <div className="ci-cat">{item.slug}</div>
                   </div>
                   <div className="ci-qty">
                     <button className="ci-qty-btn" onClick={() => updateQty(item.id, item.qty - 1)}>-</button>
