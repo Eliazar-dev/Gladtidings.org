@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { KES } from '@/lib/utils'
 import { useAuthStore } from '@/store/authStore'
 
@@ -105,7 +106,9 @@ export default function AccountPage() {
           {/* Sidebar */}
           <div style={{ background:"#fff",borderRadius:16,padding:20,border:"1px solid rgba(0,0,0,0.06)" }}>
             <div style={{ display:"flex",alignItems:"center",gap:16,paddingBottom:20,borderBottom:"1px solid var(--border)",marginBottom:20 }}>
-              <img src={profileForm.avatar || '/placeholder.jpg'} alt={profileForm.name} style={{ width:64,height:64,borderRadius:"50%",objectFit:"cover" }} />
+              <div style={{ position: 'relative', width: 64, height: 64, flexShrink: 0 }}>
+                <Image src={profileForm.avatar || '/placeholder.jpg'} alt={profileForm.name} fill sizes="64px" className="object-cover rounded-full" unoptimized />
+              </div>
               <div>
                 <div style={{ fontWeight:700,fontSize:16,color:"var(--bark)",marginBottom:4 }}>{profileForm.name}</div>
                 <div style={{ fontSize:13,color:"var(--bark)",opacity:0.6 }}>{profileForm.email}</div>
@@ -232,7 +235,9 @@ export default function AccountPage() {
                 <h2 style={{ fontFamily:"var(--ff-h)",fontSize:24,color:"var(--green)",marginBottom:24 }}>Profile Settings</h2>
                 
                 <div style={{ display:"flex",alignItems:"center",gap:20,marginBottom:32 }}>
-                  <img src={user.avatar} alt={user.name} style={{ width:100,height:100,borderRadius:"50%",objectFit:"cover" }} />
+                  <div style={{ position: 'relative', width: 100, height: 100, flexShrink: 0 }}>
+                    <Image src={profileForm.avatar || '/placeholder.jpg'} alt={profileForm.name} fill sizes="100px" className="object-cover rounded-full" unoptimized />
+                  </div>
                   <div>
                     <button style={{ padding:"10px 20px",borderRadius:8,fontSize:13,fontWeight:700,border:"1px solid var(--border)",background:"transparent",cursor:"pointer",marginBottom:8 }}>
                       Change Photo
@@ -259,7 +264,7 @@ export default function AccountPage() {
                       <button onClick={saveProfile} style={{ padding:"12px 28px",borderRadius:8,fontSize:14,fontWeight:700,border:"none",background:"var(--green)",color:"#fff",cursor:"pointer" }}>
                         Save Changes
                       </button>
-                      <button onClick={() => { setEditingProfile(false); setProfileForm({...user}); }} style={{ padding:"12px 28px",borderRadius:8,fontSize:14,fontWeight:700,border:"1px solid var(--border)",background:"transparent",cursor:"pointer" }}>
+                      <button onClick={() => { setEditingProfile(false); setProfileForm({...profileForm}); }} style={{ padding:"12px 28px",borderRadius:8,fontSize:14,fontWeight:700,border:"1px solid var(--border)",background:"transparent",cursor:"pointer" }}>
                         Cancel
                       </button>
                     </div>
@@ -268,15 +273,15 @@ export default function AccountPage() {
                   <div style={{ display:"flex",flexDirection:"column",gap:20 }}>
                     <div style={{ display:"flex",justifyContent:"space-between",padding:"16px 0",borderBottom:"1px solid var(--border)" }}>
                       <span style={{ fontSize:14,color:"var(--bark)",opacity:0.6 }}>Full Name</span>
-                      <span style={{ fontSize:14,fontWeight:600,color:"var(--bark)" }}>{user.name}</span>
+                      <span style={{ fontSize:14,fontWeight:600,color:"var(--bark)" }}>{profileForm.name}</span>
                     </div>
                     <div style={{ display:"flex",justifyContent:"space-between",padding:"16px 0",borderBottom:"1px solid var(--border)" }}>
                       <span style={{ fontSize:14,color:"var(--bark)",opacity:0.6 }}>Email</span>
-                      <span style={{ fontSize:14,fontWeight:600,color:"var(--bark)" }}>{user.email}</span>
+                      <span style={{ fontSize:14,fontWeight:600,color:"var(--bark)" }}>{profileForm.email}</span>
                     </div>
                     <div style={{ display:"flex",justifyContent:"space-between",padding:"16px 0",borderBottom:"1px solid var(--border)" }}>
                       <span style={{ fontSize:14,color:"var(--bark)",opacity:0.6 }}>Phone</span>
-                      <span style={{ fontSize:14,fontWeight:600,color:"var(--bark)" }}>{user.phone}</span>
+                      <span style={{ fontSize:14,fontWeight:600,color:"var(--bark)" }}>{profileForm.phone}</span>
                     </div>
                     <button onClick={() => setEditingProfile(true)} style={{ padding:"12px 28px",borderRadius:8,fontSize:14,fontWeight:700,border:"1px solid var(--border)",background:"transparent",cursor:"pointer",marginTop:8,width:"fit-content" }}>
                       Edit Profile
@@ -303,7 +308,9 @@ export default function AccountPage() {
                   <div style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20 }}>
                     {wishlist.map(item => (
                       <div key={item.product_id} style={{ border:"1px solid var(--border)",borderRadius:12,padding:16,textAlign:"center" }}>
-                        <img src={item.product?.images?.[0] || '/placeholder.jpg'} alt={item.product?.name} style={{ width:"100%",height:180,objectFit:"cover",borderRadius:8,marginBottom:12 }} />
+                        <div style={{ position: 'relative', width: '100%', height: 180, marginBottom: 12 }}>
+                          <Image src={item.product?.images?.[0] || '/placeholder.jpg'} alt={item.product?.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover rounded-lg" unoptimized />
+                        </div>
                         <div style={{ fontWeight:700,fontSize:14,color:"var(--bark)",marginBottom:8,height:40,overflow:"hidden" }}>{item.product?.name}</div>
                         <div style={{ fontFamily:"var(--ff-h)",fontSize:18,color:"var(--gold)",fontWeight:700,marginBottom:12 }}>{KES(item.product?.price || 0)}</div>
                         <div style={{ display:"flex",gap:8,justifyContent:"center" }}>
