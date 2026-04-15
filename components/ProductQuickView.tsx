@@ -34,16 +34,7 @@ export default function ProductQuickView({ product, isOpen, onClose }: ProductQu
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
-      addItem({
-        id: product.id,
-        name: product.name,
-        cat: product.cat || '',
-        price: product.price,
-        img: product.img,
-        badge: product.badge || null,
-        desc: product.desc || '',
-        stock: product.stock || 0,
-      })
+      addItem(product)
     }
     onClose()
   }

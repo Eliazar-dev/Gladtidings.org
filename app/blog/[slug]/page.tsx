@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { BlogPost } from '@/types'
 
@@ -47,8 +48,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <>
       <div style={{ background: "var(--white)", minHeight: "100vh" }}>
         {/* Hero */}
-        <div className="bp-hero">
-          <img src={imgUrl} alt={post.title} />
+        <div className="bp-hero" style={{ position: 'relative', width: '100%', height: '100%' }}>
+          <Image src={imgUrl} alt={post.title} fill priority sizes="100vw" unoptimized className="object-cover" />
           <div className="bp-hero-scrim" />
           <div className="bp-hero-content">
             <div className="bp-hero-inner">
@@ -92,8 +93,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* Author card */}
           <div className="bp-author-card">
-            <div className="bp-author-img">
-              <img src={authorImgUrl} alt={post.author_name} />
+            <div className="bp-author-img" style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <Image src={authorImgUrl} alt={post.author_name} fill sizes="80px" className="object-cover" unoptimized />
             </div>
             <div>
               <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--green3)", fontWeight: 700, marginBottom: 5 }}>About the Author</div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import ImageUpload from '@/components/admin/ImageUpload'
 
 interface TeamMember {
@@ -132,11 +133,9 @@ export default function AdminTeamPage() {
         {team.map((member) => (
           <div key={member.id} className="adm-card" style={{ textAlign: 'center' }}>
             {member.image_url && (
-              <img
-                src={member.image_url}
-                alt={member.name}
-                style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 8, marginBottom: 16 }}
-              />
+              <div style={{ position: 'relative', width: '100%', height: 200, marginBottom: 16 }}>
+                <Image src={member.image_url} alt={member.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover rounded-lg" unoptimized />
+              </div>
             )}
             <h3 style={{ fontFamily: 'var(--ff-h)', fontSize: 18, color: 'var(--green)', marginBottom: 4 }}>
               {member.name}

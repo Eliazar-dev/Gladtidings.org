@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { KES } from '@/lib/utils'
 
 async function getRemedyBySlug(slug: string) {
@@ -26,16 +27,14 @@ export default async function RemedyDetailPage({ params }: { params: { slug: str
 
       <div className="g2" style={{ alignItems: 'start' }}>
         {remedy.images && remedy.images[0] && (
-          <div style={{ flex: 1 }}>
-            <img 
+          <div style={{ flex: 1, position: 'relative', width: '100%', height: 'auto', minHeight: 400 }}>
+            <Image 
               src={remedy.images[0]} 
               alt={remedy.name} 
-              style={{ 
-                width: '100%', 
-                height: 'auto', 
-                borderRadius: 12,
-                objectFit: 'cover'
-              }} 
+              fill 
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover rounded-lg"
+              unoptimized
             />
           </div>
         )}
