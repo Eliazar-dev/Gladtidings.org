@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
 import { blogPostSchema } from '@/lib/validations'
+
+export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
+    const { supabase } = await import('@/lib/supabase')
     const { searchParams } = new URL(req.url)
     const tag = searchParams.get('tag')
     const featured = searchParams.get('featured')
@@ -34,6 +36,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    const { supabase } = await import('@/lib/supabase')
     const body = await req.json()
     console.log('Blog POST body:', body)
     
@@ -71,6 +74,7 @@ export async function POST(req: NextRequest) {
 
 export async function PUT(req: NextRequest) {
   try {
+    const { supabase } = await import('@/lib/supabase')
     const body = await req.json()
     const { id, ...updateData } = body
 
@@ -94,6 +98,7 @@ export async function PUT(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   try {
+    const { supabase } = await import('@/lib/supabase')
     const { searchParams } = new URL(req.url)
     const id = searchParams.get('id')
 

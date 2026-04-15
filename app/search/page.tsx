@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import { KES } from '@/lib/utils'
@@ -18,7 +18,7 @@ const CATEGORIES = [
   { label: "All Products", icon: "✨", count: 8 },
 ]
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams()
   const initialQuery = searchParams.get('q') || ''
   const [query, setQuery] = useState(initialQuery)
@@ -185,5 +185,13 @@ export default function SearchPage() {
         </div>
       </div>
     </>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
+      <SearchContent />
+    </Suspense>
   )
 }

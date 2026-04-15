@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-export default function AdminGatePage() {
+function AdminGateContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [passcode, setPasscode] = useState('')
@@ -131,5 +131,13 @@ export default function AdminGatePage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function AdminGatePage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
+      <AdminGateContent />
+    </Suspense>
   )
 }
